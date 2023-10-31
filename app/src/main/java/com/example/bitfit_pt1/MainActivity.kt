@@ -1,15 +1,14 @@
 package com.example.bitfit_pt1
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bitfit_pt1.databinding.ActivityMainBinding
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.launch
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val meals = mutableListOf<MealEntity>()
     private lateinit var meal: MealEntity
+    private lateinit var addMealButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +26,24 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         mealsRecyclerView = findViewById(R.id.meals)
+
+        val mealAdapter = MealAdapter(this, meals)
+        mealsRecyclerView.adapter = mealAdapter
+
+        mealsRecyclerView.layoutManager = LinearLayoutManager(this).also {
+            val dividerItemDecoration = DividerItemDecoration(this, it.orientation)
+            mealsRecyclerView.addItemDecoration(dividerItemDecoration)
+        }
+
+
+
+        val intent = Intent(this, DetailActivity::class.java)
+
+        val addMealButton = findViewById<Button>(R.id.addMealButton)
+
+        addMealButton.setOnClickListener {
+            startActivity(intent)
+        }
 
 
     }

@@ -44,12 +44,16 @@ class MealAdapter(private val context: Context, private val meals: List<MealEnti
         }
 
         override fun onClick(v: View?) {
-            // TODO: Get selected article
-            val article = meals[absoluteAdapterPosition]
-            // TODO: Navigate to Details screen and pass selected article
-            val intent = Intent(context, DetailActivity::class.java)
-            intent.putExtra(ARTICLE_EXTRA, article)
-            context.startActivity(intent)
+
+//  FUNCTION TO TAKE YOU TO DETAIL_ACTIVITY SCREEN
+
+
+//            // TODO: Get selected article
+//            val article = meals[absoluteAdapterPosition]
+//            // TODO: Navigate to Details screen and pass selected article
+//            val intent = Intent(context, DetailActivity::class.java)
+//            intent.putExtra(ARTICLE_EXTRA, article)
+//            context.startActivity(intent)
         }
     }
 }
