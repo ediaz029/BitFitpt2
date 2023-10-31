@@ -12,7 +12,6 @@ interface MealDao {
 
     @Insert
     fun insert(meal: MealEntity)
-    fun insertAll(meals: List<MealEntity>)
 
     @Query("DELETE FROM meal_table")
     fun deleteAll()
